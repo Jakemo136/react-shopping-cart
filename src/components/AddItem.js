@@ -10,6 +10,10 @@ class AddItem extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     this.props.updateCartItems(this.state.quantity, this.state.productId)
+    this.setState({
+      quantity: 0,
+      productId: 0
+    })
   }
 
   render () {

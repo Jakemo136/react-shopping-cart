@@ -3,11 +3,6 @@ import CartItemComponent from './CartItemComponent'
 
 
 const CartItems = ({cartItemsList}) => {
-//   Total(cartItemsList) {
-//     cartItemsList.reduce((result, currentItem) => {
-//       return result + (currentItem.product.priceInCents * currentItem.quantity)
-//     }, 0).toFixed(2)/100
-//   }
 
   return (
       <div className="container">

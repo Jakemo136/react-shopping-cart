@@ -30,14 +30,24 @@ class App extends Component {
 
   updateCartItems = (qty, productId) => {
     // double equals forces type coercion (in this case, from string to int)
-    let productToAdd = this.state.products.find(product => product.id == productId)
-    let newItem = {
-      id: this.state.cartItemsList.length + 1,
-      product: productToAdd,
-      quantity: qty
+    let checkItem = this.state.cartItemsList.filter(item => item.product.id == productId)
+
+    if (checkItem.length === 1) {
+      let cart = this.state.cartItemsList
+      let cartItem = cart.filter(item => item.product.id == productId)[0]
+      cartItem.quantity += parseInt(qty)
+      
+      this.setState({...this.state.cartItemsList, cartItem})
+    } else {
+      let productToAdd = this.state.products.find(product => product.id == productId)
+      let newItem = {
+        id: this.state.cartItemsList.length + 1,
+        product: productToAdd,
+        quantity: qty
+      }
+      
+      this.setState({cartItemsList: [...this.state.cartItemsList, newItem]})  
     }
-    
-    this.setState({cartItemsList: [...this.state.cartItemsList, newItem]})
   }
 
   render() {

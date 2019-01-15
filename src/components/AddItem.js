@@ -11,7 +11,7 @@ class AddItem extends Component {
     e.preventDefault()
     this.props.updateCartItems(this.state.quantity, this.state.productId)
   }
-  
+
   render () {
     return (
       <div>

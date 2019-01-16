@@ -45,9 +45,10 @@ class App extends Component {
         product: productToAdd,
         quantity: qty
       }
-      
+
       this.setState({cartItemsList: [...this.state.cartItemsList, newItem]})  
     }
+    console.log(this.state)
   }
 
   render() {
